@@ -1,0 +1,120 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: ManejadorActualizarClient</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">co.edu.cotecnova.facturacionelectronica.aplicacion.manejadores.client</a> ]
+</div>
+
+<h1>Coverage Summary for Class: ManejadorActualizarClient (co.edu.cotecnova.facturacionelectronica.aplicacion.manejadores.client)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ManejadorActualizarClient</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (1/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    66,7%
+  </span>
+  <span class="absValue">
+    (4/ 6)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package co.edu.cotecnova.facturacionelectronica.aplicacion.manejadores.client;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import co.edu.cotecnova.facturacionelectronica.aplicacion.comando.ComandoClient;
+<i>4</i>&nbsp;import co.edu.cotecnova.facturacionelectronica.aplicacion.fabrica.FabricaClient;
+<i>5</i>&nbsp;import co.edu.cotecnova.facturacionelectronica.dominio.modelo.Client;
+<i>6</i>&nbsp;import co.edu.cotecnova.facturacionelectronica.dominio.servicio.ClientService;
+<i>7</i>&nbsp;import org.springframework.stereotype.Component;
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;/**
+<i>10</i>&nbsp; * Clase que invoca al servicio de actualizar un cliente
+<i>11</i>&nbsp; * @author Desarrolladores Cotecnova
+<i>12</i>&nbsp; * @version 1.0
+<i>13</i>&nbsp; * @since 2021
+<i>14</i>&nbsp; */
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;@Component
+<i>17</i>&nbsp;public class ManejadorActualizarClient {
+<i>18</i>&nbsp;    private FabricaClient fabricaClient;
+<i>19</i>&nbsp;    private ClientService clientService;
+<i>20</i>&nbsp;
+<b class="fc"><i>21</i>&nbsp;    public ManejadorActualizarClient(FabricaClient fabricaClient, ClientService clientService) {</b>
+<b class="fc"><i>22</i>&nbsp;        this.fabricaClient = fabricaClient;</b>
+<b class="fc"><i>23</i>&nbsp;        this.clientService = clientService;</b>
+<b class="fc"><i>24</i>&nbsp;    }</b>
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;    /**
+<i>27</i>&nbsp;     * Permite invocar al servicio que actualiza los clientes
+<i>28</i>&nbsp;     * @param comandoClient Objeto con los atributos a actualizar
+<i>29</i>&nbsp;     * @param clientId Identificador del cliente
+<i>30</i>&nbsp;     * @return Cliente actualizado
+<i>31</i>&nbsp;     */
+<i>32</i>&nbsp;
+<i>33</i>&nbsp;    public Client ejecutar(ComandoClient comandoClient, int clientId){
+<b class="nc"><i>34</i>&nbsp;        Client client = fabricaClient.crear(comandoClient);</b>
+<b class="nc"><i>35</i>&nbsp;        return clientService.update(client, clientId);</b>
+<i>36</i>&nbsp;    }
+<i>37</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-01-31 19:58</div>
+</div>
+</body>
+</html>

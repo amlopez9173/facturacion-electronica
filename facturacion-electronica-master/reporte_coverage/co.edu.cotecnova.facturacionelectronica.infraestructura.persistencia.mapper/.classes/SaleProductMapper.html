@@ -1,0 +1,80 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: SaleProductMapper</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">co.edu.cotecnova.facturacionelectronica.infraestructura.persistencia.mapper</a> ]
+</div>
+
+<h1>Coverage Summary for Class: SaleProductMapper (co.edu.cotecnova.facturacionelectronica.infraestructura.persistencia.mapper)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">SaleProductMapper</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package co.edu.cotecnova.facturacionelectronica.infraestructura.persistencia.mapper;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import co.edu.cotecnova.facturacionelectronica.dominio.modelo.SaleProduct;
+<i>4</i>&nbsp;import co.edu.cotecnova.facturacionelectronica.infraestructura.persistencia.entidades.VentaProducto;
+<i>5</i>&nbsp;import org.mapstruct.InheritInverseConfiguration;
+<i>6</i>&nbsp;import org.mapstruct.Mapper;
+<i>7</i>&nbsp;import org.mapstruct.Mapping;
+<i>8</i>&nbsp;import org.mapstruct.Mappings;
+<i>9</i>&nbsp;
+<i>10</i>&nbsp;/**
+<i>11</i>&nbsp; * Interface que permite mapear una VentaProducto a un SaleProduct y viceversa
+<i>12</i>&nbsp; * @author Desarrolladores Cotecnova
+<i>13</i>&nbsp; * @version 1.0
+<i>14</i>&nbsp; * @since 2021
+<i>15</i>&nbsp; */
+<i>16</i>&nbsp;
+<i>17</i>&nbsp;@Mapper(componentModel = &quot;spring&quot;, uses = {ProductMapper.class})
+<i>18</i>&nbsp;public interface SaleProductMapper {
+<i>19</i>&nbsp;    @Mappings({
+<i>20</i>&nbsp;            @Mapping(source = &quot;id&quot;, target = &quot;saleProductId&quot;),
+<i>21</i>&nbsp;            @Mapping(source = &quot;productoId&quot;, target = &quot;productId&quot;),
+<i>22</i>&nbsp;            @Mapping(source = &quot;ventaId&quot;, target = &quot;saleId&quot;),
+<i>23</i>&nbsp;            @Mapping(source = &quot;cantidad&quot;, target = &quot;quantity&quot;),
+<i>24</i>&nbsp;            @Mapping(source = &quot;producto&quot;, target = &quot;product&quot;)
+<i>25</i>&nbsp;    })
+<i>26</i>&nbsp;    SaleProduct toSaleProduct(VentaProducto ventaProducto);
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;    @InheritInverseConfiguration
+<i>29</i>&nbsp;    @Mappings({
+<i>30</i>&nbsp;            @Mapping(target = &quot;venta&quot;, ignore = true),
+<i>31</i>&nbsp;    })
+<i>32</i>&nbsp;    VentaProducto toVentaProducto(SaleProduct saleProduct);
+<i>33</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-01-31 19:58</div>
+</div>
+</body>
+</html>

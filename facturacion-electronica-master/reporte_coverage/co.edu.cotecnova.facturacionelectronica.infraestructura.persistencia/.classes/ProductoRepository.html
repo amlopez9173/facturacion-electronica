@@ -1,0 +1,191 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: ProductoRepository</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">co.edu.cotecnova.facturacionelectronica.infraestructura.persistencia</a> ]
+</div>
+
+<h1>Coverage Summary for Class: ProductoRepository (co.edu.cotecnova.facturacionelectronica.infraestructura.persistencia)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ProductoRepository</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (8/ 8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (17/ 17)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">ProductoRepository$$EnhancerBySpringCGLIB$$372a2240</td>
+  </tr>
+  <tr>
+    <td class="name">ProductoRepository$$EnhancerBySpringCGLIB$$372a2240$$FastClassBySpringCGLIB$$3fa9de12</td>
+  </tr>
+  <tr>
+    <td class="name">ProductoRepository$$FastClassBySpringCGLIB$$5b3f67f6</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (8/ 8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (17/ 17)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package co.edu.cotecnova.facturacionelectronica.infraestructura.persistencia;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import co.edu.cotecnova.facturacionelectronica.dominio.modelo.Product;
+<i>4</i>&nbsp;import co.edu.cotecnova.facturacionelectronica.dominio.repositorio.ProductRepository;
+<i>5</i>&nbsp;import co.edu.cotecnova.facturacionelectronica.infraestructura.persistencia.crud.ProductoCrudRepositorio;
+<i>6</i>&nbsp;import co.edu.cotecnova.facturacionelectronica.infraestructura.persistencia.entidades.Producto;
+<i>7</i>&nbsp;import co.edu.cotecnova.facturacionelectronica.infraestructura.persistencia.mapper.ProductMapper;
+<i>8</i>&nbsp;import org.springframework.data.domain.Page;
+<i>9</i>&nbsp;import org.springframework.data.domain.Pageable;
+<i>10</i>&nbsp;import org.springframework.stereotype.Repository;
+<i>11</i>&nbsp;
+<i>12</i>&nbsp;import java.util.List;
+<i>13</i>&nbsp;import java.util.Optional;
+<i>14</i>&nbsp;
+<i>15</i>&nbsp;/**
+<i>16</i>&nbsp; * Repositorio que implementa todas las operaciones en base de datos para los productos
+<i>17</i>&nbsp; * @author Desarrolladores Cotecnova
+<i>18</i>&nbsp; * @version 1.0
+<i>19</i>&nbsp; * @since 2021
+<i>20</i>&nbsp; */
+<i>21</i>&nbsp;@Repository
+<i>22</i>&nbsp;public class ProductoRepository implements ProductRepository {
+<i>23</i>&nbsp;
+<i>24</i>&nbsp;    private ProductoCrudRepositorio productoCrudRepositorio;
+<i>25</i>&nbsp;    private ProductMapper productMapper;
+<i>26</i>&nbsp;
+<b class="fc"><i>27</i>&nbsp;    public ProductoRepository(ProductoCrudRepositorio productoCrudRepositorio, ProductMapper productMapper){</b>
+<b class="fc"><i>28</i>&nbsp;        this.productoCrudRepositorio = productoCrudRepositorio;</b>
+<b class="fc"><i>29</i>&nbsp;        this.productMapper = productMapper;</b>
+<b class="fc"><i>30</i>&nbsp;    }</b>
+<i>31</i>&nbsp;
+<i>32</i>&nbsp;    /**
+<i>33</i>&nbsp;     * {@inheritDoc}
+<i>34</i>&nbsp;     */
+<i>35</i>&nbsp;    @Override
+<i>36</i>&nbsp;    public List&lt;Product&gt; getAll() {
+<b class="fc"><i>37</i>&nbsp;        List&lt;Producto&gt; productos = (List&lt;Producto&gt;) productoCrudRepositorio.findByEstadoTrue();</b>
+<b class="fc"><i>38</i>&nbsp;        return productMapper.toProducts(productos);</b>
+<i>39</i>&nbsp;    }
+<i>40</i>&nbsp;
+<i>41</i>&nbsp;    /**
+<i>42</i>&nbsp;     * {@inheritDoc}
+<i>43</i>&nbsp;     */
+<i>44</i>&nbsp;    @Override
+<i>45</i>&nbsp;    public Optional&lt;Product&gt; findById(int productId) {
+<b class="fc"><i>46</i>&nbsp;        Optional&lt;Producto&gt; producto = productoCrudRepositorio.findById(productId);</b>
+<b class="fc"><i>47</i>&nbsp;        return producto.map(prod -&gt; productMapper.toProduct(prod));</b>
+<i>48</i>&nbsp;    }
+<i>49</i>&nbsp;
+<i>50</i>&nbsp;    /**
+<i>51</i>&nbsp;     * {@inheritDoc}
+<i>52</i>&nbsp;     */
+<i>53</i>&nbsp;    @Override
+<i>54</i>&nbsp;    public Product save(Product product) {
+<b class="fc"><i>55</i>&nbsp;        Producto producto = productMapper.toProducto(product);</b>
+<b class="fc"><i>56</i>&nbsp;        return productMapper.toProduct(productoCrudRepositorio.save(producto));</b>
+<i>57</i>&nbsp;    }
+<i>58</i>&nbsp;
+<i>59</i>&nbsp;    /**
+<i>60</i>&nbsp;     * {@inheritDoc}
+<i>61</i>&nbsp;     */
+<i>62</i>&nbsp;    @Override
+<i>63</i>&nbsp;    public void delete(int productId) {
+<b class="fc"><i>64</i>&nbsp;        productoCrudRepositorio.deleteById(productId);</b>
+<b class="fc"><i>65</i>&nbsp;    }</b>
+<i>66</i>&nbsp;
+<i>67</i>&nbsp;    /**
+<i>68</i>&nbsp;     * {@inheritDoc}
+<i>69</i>&nbsp;     */
+<i>70</i>&nbsp;    @Override
+<i>71</i>&nbsp;    public Product update(Product product) {
+<b class="fc"><i>72</i>&nbsp;        Producto producto = productMapper.toProducto(product);</b>
+<b class="fc"><i>73</i>&nbsp;        return productMapper.toProduct(productoCrudRepositorio.save(producto));</b>
+<i>74</i>&nbsp;    }
+<i>75</i>&nbsp;
+<i>76</i>&nbsp;    /**
+<i>77</i>&nbsp;     * {@inheritDoc}
+<i>78</i>&nbsp;     */
+<i>79</i>&nbsp;    @Override
+<i>80</i>&nbsp;    public Optional&lt;Product&gt; findByCode(int code) {
+<b class="fc"><i>81</i>&nbsp;        Optional&lt;Producto&gt; producto = productoCrudRepositorio.findByCodigo(code);</b>
+<b class="fc"><i>82</i>&nbsp;        return producto.map(prod -&gt; productMapper.toProduct(prod));</b>
+<i>83</i>&nbsp;    }
+<i>84</i>&nbsp;
+<i>85</i>&nbsp;    /**
+<i>86</i>&nbsp;     * {@inheritDoc}
+<i>87</i>&nbsp;     */
+<i>88</i>&nbsp;    @Override
+<i>89</i>&nbsp;    public Page&lt;Product&gt; findAll(Pageable pageable) {
+<b class="fc"><i>90</i>&nbsp;        return productoCrudRepositorio.findAll(pageable).map(producto -&gt; productMapper.toProduct(producto));</b>
+<i>91</i>&nbsp;    }
+<i>92</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-01-31 19:58</div>
+</div>
+</body>
+</html>

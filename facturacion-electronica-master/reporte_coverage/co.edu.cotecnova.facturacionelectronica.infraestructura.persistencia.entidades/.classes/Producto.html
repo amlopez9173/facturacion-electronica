@@ -1,0 +1,170 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Producto</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">co.edu.cotecnova.facturacionelectronica.infraestructura.persistencia.entidades</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Producto (co.edu.cotecnova.facturacionelectronica.infraestructura.persistencia.entidades)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Producto</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (13/ 13)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (19/ 19)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Producto$HibernateProxy$siBHqj9V</td>
+  </tr>
+  <tr>
+    <td class="name">Producto$HibernateProxy$VRHsCN8A</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (13/ 13)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (19/ 19)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package co.edu.cotecnova.facturacionelectronica.infraestructura.persistencia.entidades;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import javax.persistence.*;
+<i>4</i>&nbsp;import java.time.LocalDateTime;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;/**
+<i>7</i>&nbsp; * Entidad que mapea de la base de datos la tabla productos
+<i>8</i>&nbsp; * @author Desarrolladores Cotecnova
+<i>9</i>&nbsp; * @version 1.0
+<i>10</i>&nbsp; * @since 2021
+<i>11</i>&nbsp; */
+<i>12</i>&nbsp;@Entity
+<i>13</i>&nbsp;@Table(name = &quot;productos&quot;)
+<b class="fc"><i>14</i>&nbsp;public class Producto {</b>
+<i>15</i>&nbsp;    @Id
+<i>16</i>&nbsp;    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<i>17</i>&nbsp;    private Integer id;
+<i>18</i>&nbsp;
+<i>19</i>&nbsp;    private Integer codigo;
+<i>20</i>&nbsp;    private String nombre;
+<i>21</i>&nbsp;    private Double precio;
+<i>22</i>&nbsp;    private Boolean estado;
+<i>23</i>&nbsp;
+<i>24</i>&nbsp;    @Column(name = &quot;fecha_creacion&quot;)
+<i>25</i>&nbsp;    private LocalDateTime fechaCreacion;
+<i>26</i>&nbsp;
+<i>27</i>&nbsp;    public Integer getId() {
+<b class="fc"><i>28</i>&nbsp;        return id;</b>
+<i>29</i>&nbsp;    }
+<i>30</i>&nbsp;
+<i>31</i>&nbsp;    public void setId(Integer id) {
+<b class="fc"><i>32</i>&nbsp;        this.id = id;</b>
+<b class="fc"><i>33</i>&nbsp;    }</b>
+<i>34</i>&nbsp;
+<i>35</i>&nbsp;    public Integer getCodigo() {
+<b class="fc"><i>36</i>&nbsp;        return codigo;</b>
+<i>37</i>&nbsp;    }
+<i>38</i>&nbsp;
+<i>39</i>&nbsp;    public void setCodigo(Integer codigo) {
+<b class="fc"><i>40</i>&nbsp;        this.codigo = codigo;</b>
+<b class="fc"><i>41</i>&nbsp;    }</b>
+<i>42</i>&nbsp;
+<i>43</i>&nbsp;    public String getNombre() {
+<b class="fc"><i>44</i>&nbsp;        return nombre;</b>
+<i>45</i>&nbsp;    }
+<i>46</i>&nbsp;
+<i>47</i>&nbsp;    public void setNombre(String nombre) {
+<b class="fc"><i>48</i>&nbsp;        this.nombre = nombre;</b>
+<b class="fc"><i>49</i>&nbsp;    }</b>
+<i>50</i>&nbsp;
+<i>51</i>&nbsp;    public Double getPrecio() {
+<b class="fc"><i>52</i>&nbsp;        return precio;</b>
+<i>53</i>&nbsp;    }
+<i>54</i>&nbsp;
+<i>55</i>&nbsp;    public void setPrecio(Double precio) {
+<b class="fc"><i>56</i>&nbsp;        this.precio = precio;</b>
+<b class="fc"><i>57</i>&nbsp;    }</b>
+<i>58</i>&nbsp;
+<i>59</i>&nbsp;    public Boolean getEstado() {
+<b class="fc"><i>60</i>&nbsp;        return estado;</b>
+<i>61</i>&nbsp;    }
+<i>62</i>&nbsp;
+<i>63</i>&nbsp;    public void setEstado(Boolean estado) {
+<b class="fc"><i>64</i>&nbsp;        this.estado = estado;</b>
+<b class="fc"><i>65</i>&nbsp;    }</b>
+<i>66</i>&nbsp;
+<i>67</i>&nbsp;    public LocalDateTime getFechaCreacion() {
+<b class="fc"><i>68</i>&nbsp;        return fechaCreacion;</b>
+<i>69</i>&nbsp;    }
+<i>70</i>&nbsp;
+<i>71</i>&nbsp;    public void setFechaCreacion(LocalDateTime fechaCreacion) {
+<b class="fc"><i>72</i>&nbsp;        this.fechaCreacion = fechaCreacion;</b>
+<b class="fc"><i>73</i>&nbsp;    }</b>
+<i>74</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-01-31 19:58</div>
+</div>
+</body>
+</html>

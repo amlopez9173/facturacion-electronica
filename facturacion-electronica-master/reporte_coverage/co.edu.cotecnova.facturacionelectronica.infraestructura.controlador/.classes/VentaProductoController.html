@@ -1,0 +1,146 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: VentaProductoController</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">co.edu.cotecnova.facturacionelectronica.infraestructura.controlador</a> ]
+</div>
+
+<h1>Coverage Summary for Class: VentaProductoController (co.edu.cotecnova.facturacionelectronica.infraestructura.controlador)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">VentaProductoController</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    33,3%
+  </span>
+  <span class="absValue">
+    (1/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    57,1%
+  </span>
+  <span class="absValue">
+    (4/ 7)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package co.edu.cotecnova.facturacionelectronica.infraestructura.controlador;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import co.edu.cotecnova.facturacionelectronica.aplicacion.comando.ComandoSaleProduct;
+<i>4</i>&nbsp;import co.edu.cotecnova.facturacionelectronica.aplicacion.manejadores.saleproduct.ManejadorCrearSaleProduct;
+<i>5</i>&nbsp;import co.edu.cotecnova.facturacionelectronica.aplicacion.manejadores.saleproduct.ManejadorEliminarSaleProduct;
+<i>6</i>&nbsp;import co.edu.cotecnova.facturacionelectronica.dominio.modelo.SaleProduct;
+<i>7</i>&nbsp;import io.swagger.annotations.ApiOperation;
+<i>8</i>&nbsp;import io.swagger.annotations.ApiParam;
+<i>9</i>&nbsp;import io.swagger.annotations.ApiResponse;
+<i>10</i>&nbsp;import io.swagger.annotations.ApiResponses;
+<i>11</i>&nbsp;import org.springframework.http.HttpStatus;
+<i>12</i>&nbsp;import org.springframework.http.ResponseEntity;
+<i>13</i>&nbsp;import org.springframework.web.bind.annotation.*;
+<i>14</i>&nbsp;
+<i>15</i>&nbsp;/**
+<i>16</i>&nbsp; * Clase que exponde todos los metodos disponibles para interacturar con la venta producto
+<i>17</i>&nbsp; * @author Desarrolladores Cotecnova
+<i>18</i>&nbsp; * @version 1.0
+<i>19</i>&nbsp; * @since 2021
+<i>20</i>&nbsp; */
+<i>21</i>&nbsp;
+<i>22</i>&nbsp;@RestController
+<i>23</i>&nbsp;@RequestMapping(&quot;/saleproducts&quot;)
+<i>24</i>&nbsp;public class VentaProductoController {
+<i>25</i>&nbsp;    private ManejadorCrearSaleProduct manejadorCrearSaleProduct;
+<i>26</i>&nbsp;    private ManejadorEliminarSaleProduct manejadorEliminarSaleProduct;
+<i>27</i>&nbsp;
+<b class="fc"><i>28</i>&nbsp;    public VentaProductoController(ManejadorCrearSaleProduct manejadorCrearSaleProduct, ManejadorEliminarSaleProduct manejadorEliminarSaleProduct) {</b>
+<b class="fc"><i>29</i>&nbsp;        this.manejadorCrearSaleProduct = manejadorCrearSaleProduct;</b>
+<b class="fc"><i>30</i>&nbsp;        this.manejadorEliminarSaleProduct = manejadorEliminarSaleProduct;</b>
+<b class="fc"><i>31</i>&nbsp;    }</b>
+<i>32</i>&nbsp;
+<i>33</i>&nbsp;    /**
+<i>34</i>&nbsp;     * Metodo que permite guardar una venta producto
+<i>35</i>&nbsp;     * @param comandoSaleProduct Objeto que mapea los atributos de la venta producto
+<i>36</i>&nbsp;     * @return Estado de la operacion
+<i>37</i>&nbsp;     */
+<i>38</i>&nbsp;    @PostMapping
+<i>39</i>&nbsp;    @ApiOperation(&quot;Guardar una venta producto en la base de datos&quot;)
+<i>40</i>&nbsp;    @ApiResponses({
+<i>41</i>&nbsp;            @ApiResponse(code = 201, message = &quot;Venta Producto almacenada en la base de datos&quot;),
+<i>42</i>&nbsp;            @ApiResponse(code = 400, message = &quot;El productoid de la venta producto ya existe en la base de datos&quot;)
+<i>43</i>&nbsp;    })
+<i>44</i>&nbsp;    public ResponseEntity&lt;SaleProduct&gt; save(@ApiParam(value = &quot;Objeto venta Producto&quot;, required = true, example = &quot;productId:29, saleId:3, quantity:10@RequestBody&quot;)@RequestBody ComandoSaleProduct comandoSaleProduct){
+<b class="nc"><i>45</i>&nbsp;        return new ResponseEntity&lt;&gt;(manejadorCrearSaleProduct.ejecutar(comandoSaleProduct), HttpStatus.CREATED);</b>
+<i>46</i>&nbsp;    }
+<i>47</i>&nbsp;
+<i>48</i>&nbsp;    /**
+<i>49</i>&nbsp;     * Metodo que permite eliminar una venta producto
+<i>50</i>&nbsp;     * @param saleProductId Identificador de la venta producto
+<i>51</i>&nbsp;     * @return Estado de la operacion
+<i>52</i>&nbsp;     */
+<i>53</i>&nbsp;    @DeleteMapping(&quot;/{id}&quot;)
+<i>54</i>&nbsp;    @ApiOperation(&quot;Permite eliminar una venta producto dando su id&quot;)
+<i>55</i>&nbsp;    @ApiResponses({
+<i>56</i>&nbsp;            @ApiResponse(code = 204, message = &quot;Venta Producto eliminada con exito&quot;),
+<i>57</i>&nbsp;            @ApiResponse(code = 400, message = &quot;El productoid de la venta producto no fue encontrado&quot;),
+<i>58</i>&nbsp;    })
+<i>59</i>&nbsp;    public ResponseEntity&lt;Void&gt; delete(@ApiParam(value = &quot;Objeto venta Producto&quot;, required = true, example = &quot;2&quot;)@PathVariable(&quot;id&quot;) int saleProductId){
+<b class="nc"><i>60</i>&nbsp;        manejadorEliminarSaleProduct.ejecutar(saleProductId);</b>
+<b class="nc"><i>61</i>&nbsp;        return new ResponseEntity&lt;&gt;(HttpStatus.NO_CONTENT);</b>
+<i>62</i>&nbsp;    }
+<i>63</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-01-31 19:58</div>
+</div>
+</body>
+</html>

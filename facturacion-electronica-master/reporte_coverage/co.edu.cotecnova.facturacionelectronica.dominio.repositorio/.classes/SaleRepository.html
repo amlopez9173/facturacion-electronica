@@ -1,0 +1,105 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: SaleRepository</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">co.edu.cotecnova.facturacionelectronica.dominio.repositorio</a> ]
+</div>
+
+<h1>Coverage Summary for Class: SaleRepository (co.edu.cotecnova.facturacionelectronica.dominio.repositorio)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">SaleRepository</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package co.edu.cotecnova.facturacionelectronica.dominio.repositorio;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import co.edu.cotecnova.facturacionelectronica.dominio.modelo.Sale;
+<i>4</i>&nbsp;import org.springframework.data.domain.Page;
+<i>5</i>&nbsp;import org.springframework.data.domain.Pageable;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;import java.util.List;
+<i>8</i>&nbsp;import java.util.Optional;
+<i>9</i>&nbsp;
+<i>10</i>&nbsp;/**
+<i>11</i>&nbsp; * Interface que define el contrato a realizar por el repositorio
+<i>12</i>&nbsp; * @author Desarrolladores Cotecnova
+<i>13</i>&nbsp; * @version 1.0
+<i>14</i>&nbsp; * @since 2021
+<i>15</i>&nbsp; */
+<i>16</i>&nbsp;
+<i>17</i>&nbsp;public interface SaleRepository {
+<i>18</i>&nbsp;
+<i>19</i>&nbsp;    /**
+<i>20</i>&nbsp;     * Permite devolver todas las ventas
+<i>21</i>&nbsp;     * @return Listado de ventas
+<i>22</i>&nbsp;     */
+<i>23</i>&nbsp;    List&lt;Sale&gt; getAll();
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;    /**
+<i>26</i>&nbsp;     * Permite buscar una venta por su id
+<i>27</i>&nbsp;     * @param saleId Identificador de la venta en la base de datos
+<i>28</i>&nbsp;     * @return La venta
+<i>29</i>&nbsp;     */
+<i>30</i>&nbsp;    Optional&lt;Sale&gt; findById(int saleId);
+<i>31</i>&nbsp;
+<i>32</i>&nbsp;    /**
+<i>33</i>&nbsp;     * Permite guardar una venta
+<i>34</i>&nbsp;     * @param sale Obtjeto con los atributos a almacenar en la base de datos
+<i>35</i>&nbsp;     * @return Venta almacenada en la base de datos
+<i>36</i>&nbsp;     */
+<i>37</i>&nbsp;    Sale save(Sale sale);
+<i>38</i>&nbsp;
+<i>39</i>&nbsp;    /**
+<i>40</i>&nbsp;     * Permite actualizar una venta
+<i>41</i>&nbsp;     * @param sale Objeto venta con los datos a actualizar
+<i>42</i>&nbsp;     * @return Venta actualizada
+<i>43</i>&nbsp;     */
+<i>44</i>&nbsp;    Sale update(Sale sale);
+<i>45</i>&nbsp;
+<i>46</i>&nbsp;    /**
+<i>47</i>&nbsp;     * Permite eliminar una venta
+<i>48</i>&nbsp;     * @param saleId El identificador de la venta
+<i>49</i>&nbsp;     */
+<i>50</i>&nbsp;    void delete(int saleId);
+<i>51</i>&nbsp;
+<i>52</i>&nbsp;    /**
+<i>53</i>&nbsp;     * Permite paginar el listado de ventas almacenadas en la base de datos
+<i>54</i>&nbsp;     * @param pageable Objeto con atributos page y size
+<i>55</i>&nbsp;     * @return Listado de ventas paginadas
+<i>56</i>&nbsp;     */
+<i>57</i>&nbsp;    Page&lt;Sale&gt; findAll(Pageable pageable);
+<i>58</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-01-31 19:58</div>
+</div>
+</body>
+</html>

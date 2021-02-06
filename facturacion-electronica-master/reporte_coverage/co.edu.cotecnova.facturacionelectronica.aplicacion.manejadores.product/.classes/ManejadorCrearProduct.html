@@ -1,0 +1,135 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: ManejadorCrearProduct</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">co.edu.cotecnova.facturacionelectronica.aplicacion.manejadores.product</a> ]
+</div>
+
+<h1>Coverage Summary for Class: ManejadorCrearProduct (co.edu.cotecnova.facturacionelectronica.aplicacion.manejadores.product)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ManejadorCrearProduct</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (6/ 6)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">ManejadorCrearProduct$MockitoMock$2138107079</td>
+  </tr>
+  <tr>
+    <td class="name">ManejadorCrearProduct$MockitoMock$2138107079$auxiliary$bXsz4KI2</td>
+  </tr>
+  <tr>
+    <td class="name">ManejadorCrearProduct$MockitoMock$2138107079$auxiliary$PRAwXifP</td>
+  </tr>
+  <tr>
+    <td class="name">ManejadorCrearProduct$MockitoMock$2138107079$auxiliary$yQdxaoHg</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (6/ 6)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package co.edu.cotecnova.facturacionelectronica.aplicacion.manejadores.product;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import co.edu.cotecnova.facturacionelectronica.aplicacion.comando.ComandoProduct;
+<i>4</i>&nbsp;import co.edu.cotecnova.facturacionelectronica.aplicacion.fabrica.FabricaProduct;
+<i>5</i>&nbsp;import co.edu.cotecnova.facturacionelectronica.dominio.modelo.Product;
+<i>6</i>&nbsp;import co.edu.cotecnova.facturacionelectronica.dominio.servicio.ProductService;
+<i>7</i>&nbsp;import org.springframework.stereotype.Component;
+<i>8</i>&nbsp;/**
+<i>9</i>&nbsp; * Clase para crear un producto
+<i>10</i>&nbsp; * @author Desarrolladores Cotecnova
+<i>11</i>&nbsp; * @version 1.0
+<i>12</i>&nbsp; * @since 2021
+<i>13</i>&nbsp; */
+<i>14</i>&nbsp;@Component
+<i>15</i>&nbsp;public class ManejadorCrearProduct {
+<i>16</i>&nbsp;    private ProductService productService;
+<i>17</i>&nbsp;    private FabricaProduct fabricaProduct;
+<i>18</i>&nbsp;
+<b class="fc"><i>19</i>&nbsp;    public ManejadorCrearProduct(ProductService productService, FabricaProduct fabricaProduct) {</b>
+<b class="fc"><i>20</i>&nbsp;        this.productService = productService;</b>
+<b class="fc"><i>21</i>&nbsp;        this.fabricaProduct = fabricaProduct;</b>
+<b class="fc"><i>22</i>&nbsp;    }</b>
+<i>23</i>&nbsp;
+<i>24</i>&nbsp;    /**
+<i>25</i>&nbsp;     * Metodo que se encarga de llamar al servicio y ejecutar la accion
+<i>26</i>&nbsp;     * @param comandoProduct Objeto que contiene los parametros ingresados por el usuario
+<i>27</i>&nbsp;     * @return Product almacenado en la base de datos
+<i>28</i>&nbsp;     */
+<i>29</i>&nbsp;    public Product ejecutar(ComandoProduct comandoProduct){
+<b class="fc"><i>30</i>&nbsp;        Product product = fabricaProduct.crear(comandoProduct);</b>
+<b class="fc"><i>31</i>&nbsp;        return productService.save(product);</b>
+<i>32</i>&nbsp;    }
+<i>33</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-01-31 19:58</div>
+</div>
+</body>
+</html>

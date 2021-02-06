@@ -1,0 +1,194 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: SaleMapperImpl</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">co.edu.cotecnova.facturacionelectronica.infraestructura.persistencia.mapper</a> ]
+</div>
+
+<h1>Coverage Summary for Class: SaleMapperImpl (co.edu.cotecnova.facturacionelectronica.infraestructura.persistencia.mapper)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">SaleMapperImpl</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    16,7%
+  </span>
+  <span class="absValue">
+    (1/ 6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    2,1%
+  </span>
+  <span class="absValue">
+    (1/ 48)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package co.edu.cotecnova.facturacionelectronica.infraestructura.persistencia.mapper;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import co.edu.cotecnova.facturacionelectronica.dominio.modelo.Sale;
+<i>4</i>&nbsp;import co.edu.cotecnova.facturacionelectronica.dominio.modelo.SaleProduct;
+<i>5</i>&nbsp;import co.edu.cotecnova.facturacionelectronica.infraestructura.persistencia.entidades.Venta;
+<i>6</i>&nbsp;import co.edu.cotecnova.facturacionelectronica.infraestructura.persistencia.entidades.VentaProducto;
+<i>7</i>&nbsp;import java.util.ArrayList;
+<i>8</i>&nbsp;import java.util.List;
+<i>9</i>&nbsp;import javax.annotation.Generated;
+<i>10</i>&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+<i>11</i>&nbsp;import org.springframework.stereotype.Component;
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;@Generated(
+<i>14</i>&nbsp;    value = &quot;org.mapstruct.ap.MappingProcessor&quot;,
+<i>15</i>&nbsp;    date = &quot;2021-01-27T19:07:28-0500&quot;,
+<i>16</i>&nbsp;    comments = &quot;version: 1.4.1.Final, compiler: javac, environment: Java 1.8.0_271 (Oracle Corporation)&quot;
+<i>17</i>&nbsp;)
+<i>18</i>&nbsp;@Component
+<b class="fc"><i>19</i>&nbsp;public class SaleMapperImpl implements SaleMapper {</b>
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;    @Autowired
+<i>22</i>&nbsp;    private ClientMapper clientMapper;
+<i>23</i>&nbsp;    @Autowired
+<i>24</i>&nbsp;    private SaleProductMapper saleProductMapper;
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;    @Override
+<i>27</i>&nbsp;    public Sale toSale(Venta venta) {
+<b class="nc"><i>28</i>&nbsp;        if ( venta == null ) {</b>
+<b class="nc"><i>29</i>&nbsp;            return null;</b>
+<i>30</i>&nbsp;        }
+<i>31</i>&nbsp;
+<b class="nc"><i>32</i>&nbsp;        Sale sale = new Sale();</b>
+<i>33</i>&nbsp;
+<b class="nc"><i>34</i>&nbsp;        if ( venta.getId() != null ) {</b>
+<b class="nc"><i>35</i>&nbsp;            sale.setSaleId( venta.getId() );</b>
+<i>36</i>&nbsp;        }
+<b class="nc"><i>37</i>&nbsp;        if ( venta.getClienteId() != null ) {</b>
+<b class="nc"><i>38</i>&nbsp;            sale.setClientId( venta.getClienteId() );</b>
+<i>39</i>&nbsp;        }
+<b class="nc"><i>40</i>&nbsp;        if ( venta.getEstado() != null ) {</b>
+<b class="nc"><i>41</i>&nbsp;            sale.setActive( venta.getEstado() );</b>
+<i>42</i>&nbsp;        }
+<b class="nc"><i>43</i>&nbsp;        if ( venta.getValorCompra() != null ) {</b>
+<b class="nc"><i>44</i>&nbsp;            sale.setPurchaseValue( venta.getValorCompra() );</b>
+<i>45</i>&nbsp;        }
+<b class="nc"><i>46</i>&nbsp;        sale.setCreationDate( venta.getFechaCreacion() );</b>
+<b class="nc"><i>47</i>&nbsp;        sale.setClient( clientMapper.toClient( venta.getCliente() ) );</b>
+<b class="nc"><i>48</i>&nbsp;        sale.setSaleProducts( ventaProductoListToSaleProductList( venta.getVentaProductos() ) );</b>
+<i>49</i>&nbsp;
+<b class="nc"><i>50</i>&nbsp;        return sale;</b>
+<i>51</i>&nbsp;    }
+<i>52</i>&nbsp;
+<i>53</i>&nbsp;    @Override
+<i>54</i>&nbsp;    public List&lt;Sale&gt; toSales(List&lt;Venta&gt; ventas) {
+<b class="nc"><i>55</i>&nbsp;        if ( ventas == null ) {</b>
+<b class="nc"><i>56</i>&nbsp;            return null;</b>
+<i>57</i>&nbsp;        }
+<i>58</i>&nbsp;
+<b class="nc"><i>59</i>&nbsp;        List&lt;Sale&gt; list = new ArrayList&lt;Sale&gt;( ventas.size() );</b>
+<b class="nc"><i>60</i>&nbsp;        for ( Venta venta : ventas ) {</b>
+<b class="nc"><i>61</i>&nbsp;            list.add( toSale( venta ) );</b>
+<b class="nc"><i>62</i>&nbsp;        }</b>
+<i>63</i>&nbsp;
+<b class="nc"><i>64</i>&nbsp;        return list;</b>
+<i>65</i>&nbsp;    }
+<i>66</i>&nbsp;
+<i>67</i>&nbsp;    @Override
+<i>68</i>&nbsp;    public Venta toVenta(Sale sale) {
+<b class="nc"><i>69</i>&nbsp;        if ( sale == null ) {</b>
+<b class="nc"><i>70</i>&nbsp;            return null;</b>
+<i>71</i>&nbsp;        }
+<i>72</i>&nbsp;
+<b class="nc"><i>73</i>&nbsp;        Venta venta = new Venta();</b>
+<i>74</i>&nbsp;
+<b class="nc"><i>75</i>&nbsp;        venta.setId( sale.getSaleId() );</b>
+<b class="nc"><i>76</i>&nbsp;        venta.setClienteId( sale.getClientId() );</b>
+<b class="nc"><i>77</i>&nbsp;        venta.setEstado( sale.isActive() );</b>
+<b class="nc"><i>78</i>&nbsp;        venta.setValorCompra( sale.getPurchaseValue() );</b>
+<b class="nc"><i>79</i>&nbsp;        venta.setFechaCreacion( sale.getCreationDate() );</b>
+<b class="nc"><i>80</i>&nbsp;        venta.setCliente( clientMapper.toCliente( sale.getClient() ) );</b>
+<b class="nc"><i>81</i>&nbsp;        venta.setVentaProductos( saleProductListToVentaProductoList( sale.getSaleProducts() ) );</b>
+<i>82</i>&nbsp;
+<b class="nc"><i>83</i>&nbsp;        return venta;</b>
+<i>84</i>&nbsp;    }
+<i>85</i>&nbsp;
+<i>86</i>&nbsp;    protected List&lt;SaleProduct&gt; ventaProductoListToSaleProductList(List&lt;VentaProducto&gt; list) {
+<b class="nc"><i>87</i>&nbsp;        if ( list == null ) {</b>
+<b class="nc"><i>88</i>&nbsp;            return null;</b>
+<i>89</i>&nbsp;        }
+<i>90</i>&nbsp;
+<b class="nc"><i>91</i>&nbsp;        List&lt;SaleProduct&gt; list1 = new ArrayList&lt;SaleProduct&gt;( list.size() );</b>
+<b class="nc"><i>92</i>&nbsp;        for ( VentaProducto ventaProducto : list ) {</b>
+<b class="nc"><i>93</i>&nbsp;            list1.add( saleProductMapper.toSaleProduct( ventaProducto ) );</b>
+<b class="nc"><i>94</i>&nbsp;        }</b>
+<i>95</i>&nbsp;
+<b class="nc"><i>96</i>&nbsp;        return list1;</b>
+<i>97</i>&nbsp;    }
+<i>98</i>&nbsp;
+<i>99</i>&nbsp;    protected List&lt;VentaProducto&gt; saleProductListToVentaProductoList(List&lt;SaleProduct&gt; list) {
+<b class="nc"><i>100</i>&nbsp;        if ( list == null ) {</b>
+<b class="nc"><i>101</i>&nbsp;            return null;</b>
+<i>102</i>&nbsp;        }
+<i>103</i>&nbsp;
+<b class="nc"><i>104</i>&nbsp;        List&lt;VentaProducto&gt; list1 = new ArrayList&lt;VentaProducto&gt;( list.size() );</b>
+<b class="nc"><i>105</i>&nbsp;        for ( SaleProduct saleProduct : list ) {</b>
+<b class="nc"><i>106</i>&nbsp;            list1.add( saleProductMapper.toVentaProducto( saleProduct ) );</b>
+<b class="nc"><i>107</i>&nbsp;        }</b>
+<i>108</i>&nbsp;
+<b class="nc"><i>109</i>&nbsp;        return list1;</b>
+<i>110</i>&nbsp;    }
+<i>111</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-01-31 19:58</div>
+</div>
+</body>
+</html>

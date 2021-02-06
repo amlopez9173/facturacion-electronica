@@ -1,0 +1,144 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: SaleProductMapperImpl</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">co.edu.cotecnova.facturacionelectronica.infraestructura.persistencia.mapper</a> ]
+</div>
+
+<h1>Coverage Summary for Class: SaleProductMapperImpl (co.edu.cotecnova.facturacionelectronica.infraestructura.persistencia.mapper)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">SaleProductMapperImpl</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    33,3%
+  </span>
+  <span class="absValue">
+    (1/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    4,3%
+  </span>
+  <span class="absValue">
+    (1/ 23)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package co.edu.cotecnova.facturacionelectronica.infraestructura.persistencia.mapper;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import co.edu.cotecnova.facturacionelectronica.dominio.modelo.SaleProduct;
+<i>4</i>&nbsp;import co.edu.cotecnova.facturacionelectronica.infraestructura.persistencia.entidades.VentaProducto;
+<i>5</i>&nbsp;import javax.annotation.Generated;
+<i>6</i>&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+<i>7</i>&nbsp;import org.springframework.stereotype.Component;
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;@Generated(
+<i>10</i>&nbsp;    value = &quot;org.mapstruct.ap.MappingProcessor&quot;,
+<i>11</i>&nbsp;    date = &quot;2021-01-27T19:07:28-0500&quot;,
+<i>12</i>&nbsp;    comments = &quot;version: 1.4.1.Final, compiler: javac, environment: Java 1.8.0_271 (Oracle Corporation)&quot;
+<i>13</i>&nbsp;)
+<i>14</i>&nbsp;@Component
+<b class="fc"><i>15</i>&nbsp;public class SaleProductMapperImpl implements SaleProductMapper {</b>
+<i>16</i>&nbsp;
+<i>17</i>&nbsp;    @Autowired
+<i>18</i>&nbsp;    private ProductMapper productMapper;
+<i>19</i>&nbsp;
+<i>20</i>&nbsp;    @Override
+<i>21</i>&nbsp;    public SaleProduct toSaleProduct(VentaProducto ventaProducto) {
+<b class="nc"><i>22</i>&nbsp;        if ( ventaProducto == null ) {</b>
+<b class="nc"><i>23</i>&nbsp;            return null;</b>
+<i>24</i>&nbsp;        }
+<i>25</i>&nbsp;
+<b class="nc"><i>26</i>&nbsp;        SaleProduct saleProduct = new SaleProduct();</b>
+<i>27</i>&nbsp;
+<b class="nc"><i>28</i>&nbsp;        if ( ventaProducto.getId() != null ) {</b>
+<b class="nc"><i>29</i>&nbsp;            saleProduct.setSaleProductId( ventaProducto.getId() );</b>
+<i>30</i>&nbsp;        }
+<b class="nc"><i>31</i>&nbsp;        if ( ventaProducto.getProductoId() != null ) {</b>
+<b class="nc"><i>32</i>&nbsp;            saleProduct.setProductId( ventaProducto.getProductoId() );</b>
+<i>33</i>&nbsp;        }
+<b class="nc"><i>34</i>&nbsp;        if ( ventaProducto.getVentaId() != null ) {</b>
+<b class="nc"><i>35</i>&nbsp;            saleProduct.setSaleId( ventaProducto.getVentaId() );</b>
+<i>36</i>&nbsp;        }
+<b class="nc"><i>37</i>&nbsp;        if ( ventaProducto.getCantidad() != null ) {</b>
+<b class="nc"><i>38</i>&nbsp;            saleProduct.setQuantity( ventaProducto.getCantidad() );</b>
+<i>39</i>&nbsp;        }
+<b class="nc"><i>40</i>&nbsp;        saleProduct.setProduct( productMapper.toProduct( ventaProducto.getProducto() ) );</b>
+<i>41</i>&nbsp;
+<b class="nc"><i>42</i>&nbsp;        return saleProduct;</b>
+<i>43</i>&nbsp;    }
+<i>44</i>&nbsp;
+<i>45</i>&nbsp;    @Override
+<i>46</i>&nbsp;    public VentaProducto toVentaProducto(SaleProduct saleProduct) {
+<b class="nc"><i>47</i>&nbsp;        if ( saleProduct == null ) {</b>
+<b class="nc"><i>48</i>&nbsp;            return null;</b>
+<i>49</i>&nbsp;        }
+<i>50</i>&nbsp;
+<b class="nc"><i>51</i>&nbsp;        VentaProducto ventaProducto = new VentaProducto();</b>
+<i>52</i>&nbsp;
+<b class="nc"><i>53</i>&nbsp;        ventaProducto.setId( saleProduct.getSaleProductId() );</b>
+<b class="nc"><i>54</i>&nbsp;        ventaProducto.setProductoId( saleProduct.getProductId() );</b>
+<b class="nc"><i>55</i>&nbsp;        ventaProducto.setVentaId( saleProduct.getSaleId() );</b>
+<b class="nc"><i>56</i>&nbsp;        ventaProducto.setCantidad( saleProduct.getQuantity() );</b>
+<b class="nc"><i>57</i>&nbsp;        ventaProducto.setProducto( productMapper.toProducto( saleProduct.getProduct() ) );</b>
+<i>58</i>&nbsp;
+<b class="nc"><i>59</i>&nbsp;        return ventaProducto;</b>
+<i>60</i>&nbsp;    }
+<i>61</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-01-31 19:58</div>
+</div>
+</body>
+</html>

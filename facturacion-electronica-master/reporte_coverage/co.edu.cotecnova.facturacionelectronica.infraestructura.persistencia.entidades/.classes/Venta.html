@@ -1,0 +1,190 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Venta</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">co.edu.cotecnova.facturacionelectronica.infraestructura.persistencia.entidades</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Venta (co.edu.cotecnova.facturacionelectronica.infraestructura.persistencia.entidades)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Venta</td>
+<td class="coverageStat">
+  <span class="percent">
+    6,7%
+  </span>
+  <span class="absValue">
+    (1/ 15)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    4,5%
+  </span>
+  <span class="absValue">
+    (1/ 22)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Venta$HibernateProxy$T6sUNHuT</td>
+  </tr>
+  <tr>
+    <td class="name">Venta$HibernateProxy$urWhlX4d</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    6,7%
+  </span>
+  <span class="absValue">
+    (1/ 15)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    4,5%
+  </span>
+  <span class="absValue">
+    (1/ 22)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package co.edu.cotecnova.facturacionelectronica.infraestructura.persistencia.entidades;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import javax.persistence.*;
+<i>4</i>&nbsp;import java.time.LocalDateTime;
+<i>5</i>&nbsp;import java.util.List;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;/**
+<i>8</i>&nbsp; * Entidad que mapea de la base de datos la tabla venta
+<i>9</i>&nbsp; * @author Desarrolladores Cotecnova
+<i>10</i>&nbsp; * @version 1.0
+<i>11</i>&nbsp; * @since 2021
+<i>12</i>&nbsp; */
+<i>13</i>&nbsp;
+<i>14</i>&nbsp;@Entity
+<i>15</i>&nbsp;@Table(name = &quot;ventas&quot;)
+<b class="fc"><i>16</i>&nbsp;public class Venta {</b>
+<i>17</i>&nbsp;    @Id
+<i>18</i>&nbsp;    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<i>19</i>&nbsp;    private Integer id;
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;    @Column(name = &quot;cliente_id&quot;)
+<i>22</i>&nbsp;    private Integer clienteId;
+<i>23</i>&nbsp;
+<i>24</i>&nbsp;    @Column(name = &quot;valor_compra&quot;)
+<i>25</i>&nbsp;    private Double valorCompra;
+<i>26</i>&nbsp;
+<i>27</i>&nbsp;    private Boolean estado;
+<i>28</i>&nbsp;
+<i>29</i>&nbsp;    @Column(name = &quot;fecha_creacion&quot;)
+<i>30</i>&nbsp;    private LocalDateTime fechaCreacion;
+<i>31</i>&nbsp;
+<i>32</i>&nbsp;    @ManyToOne
+<i>33</i>&nbsp;    @JoinColumn(name = &quot;cliente_id&quot;, insertable = false, updatable = false)
+<i>34</i>&nbsp;    private Cliente cliente;
+<i>35</i>&nbsp;
+<i>36</i>&nbsp;    @OneToMany(mappedBy = &quot;venta&quot;, cascade = {CascadeType.ALL})
+<i>37</i>&nbsp;    private List&lt;VentaProducto&gt; ventaProductos;
+<i>38</i>&nbsp;
+<i>39</i>&nbsp;    public Integer getId() {
+<b class="nc"><i>40</i>&nbsp;        return id;</b>
+<i>41</i>&nbsp;    }
+<i>42</i>&nbsp;
+<i>43</i>&nbsp;    public void setId(Integer id) {
+<b class="nc"><i>44</i>&nbsp;        this.id = id;</b>
+<b class="nc"><i>45</i>&nbsp;    }</b>
+<i>46</i>&nbsp;
+<i>47</i>&nbsp;    public Integer getClienteId() {
+<b class="nc"><i>48</i>&nbsp;        return clienteId;</b>
+<i>49</i>&nbsp;    }
+<i>50</i>&nbsp;
+<i>51</i>&nbsp;    public void setClienteId(Integer clienteId) {
+<b class="nc"><i>52</i>&nbsp;        this.clienteId = clienteId;</b>
+<b class="nc"><i>53</i>&nbsp;    }</b>
+<i>54</i>&nbsp;
+<i>55</i>&nbsp;    public Double getValorCompra() {
+<b class="nc"><i>56</i>&nbsp;        return valorCompra;</b>
+<i>57</i>&nbsp;    }
+<i>58</i>&nbsp;
+<i>59</i>&nbsp;    public void setValorCompra(Double valorCompra) {
+<b class="nc"><i>60</i>&nbsp;        this.valorCompra = valorCompra;</b>
+<b class="nc"><i>61</i>&nbsp;    }</b>
+<i>62</i>&nbsp;
+<i>63</i>&nbsp;    public Boolean getEstado() {
+<b class="nc"><i>64</i>&nbsp;        return estado;</b>
+<i>65</i>&nbsp;    }
+<i>66</i>&nbsp;
+<i>67</i>&nbsp;    public void setEstado(Boolean estado) {
+<b class="nc"><i>68</i>&nbsp;        this.estado = estado;</b>
+<b class="nc"><i>69</i>&nbsp;    }</b>
+<i>70</i>&nbsp;
+<i>71</i>&nbsp;    public LocalDateTime getFechaCreacion() {
+<b class="nc"><i>72</i>&nbsp;        return fechaCreacion;</b>
+<i>73</i>&nbsp;    }
+<i>74</i>&nbsp;
+<i>75</i>&nbsp;    public void setFechaCreacion(LocalDateTime fechaCreacion) {
+<b class="nc"><i>76</i>&nbsp;        this.fechaCreacion = fechaCreacion;</b>
+<b class="nc"><i>77</i>&nbsp;    }</b>
+<i>78</i>&nbsp;
+<i>79</i>&nbsp;    public Cliente getCliente() {
+<b class="nc"><i>80</i>&nbsp;        return cliente;</b>
+<i>81</i>&nbsp;    }
+<i>82</i>&nbsp;
+<i>83</i>&nbsp;    public void setCliente(Cliente cliente) {
+<b class="nc"><i>84</i>&nbsp;        this.cliente = cliente;</b>
+<b class="nc"><i>85</i>&nbsp;    }</b>
+<i>86</i>&nbsp;
+<i>87</i>&nbsp;    public List&lt;VentaProducto&gt; getVentaProductos() {
+<b class="nc"><i>88</i>&nbsp;        return ventaProductos;</b>
+<i>89</i>&nbsp;    }
+<i>90</i>&nbsp;
+<i>91</i>&nbsp;    public void setVentaProductos(List&lt;VentaProducto&gt; ventaProductos) {
+<b class="nc"><i>92</i>&nbsp;        this.ventaProductos = ventaProductos;</b>
+<b class="nc"><i>93</i>&nbsp;    }</b>
+<i>94</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-01-31 19:58</div>
+</div>
+</body>
+</html>

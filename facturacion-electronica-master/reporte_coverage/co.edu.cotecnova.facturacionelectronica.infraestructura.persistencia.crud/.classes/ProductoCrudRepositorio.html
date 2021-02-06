@@ -1,0 +1,66 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: ProductoCrudRepositorio</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">co.edu.cotecnova.facturacionelectronica.infraestructura.persistencia.crud</a> ]
+</div>
+
+<h1>Coverage Summary for Class: ProductoCrudRepositorio (co.edu.cotecnova.facturacionelectronica.infraestructura.persistencia.crud)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">ProductoCrudRepositorio</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package co.edu.cotecnova.facturacionelectronica.infraestructura.persistencia.crud;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import co.edu.cotecnova.facturacionelectronica.infraestructura.persistencia.entidades.Producto;
+<i>4</i>&nbsp;import org.springframework.data.repository.PagingAndSortingRepository;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;import java.util.List;
+<i>7</i>&nbsp;import java.util.Optional;
+<i>8</i>&nbsp;/**
+<i>9</i>&nbsp; * Interface que extiende de JPA para permitir las tareas de la base de datos
+<i>10</i>&nbsp; * @author Desarrolladores Cotecnova
+<i>11</i>&nbsp; * @version 1.0
+<i>12</i>&nbsp; * @since 2021
+<i>13</i>&nbsp; */
+<i>14</i>&nbsp;public interface ProductoCrudRepositorio extends PagingAndSortingRepository&lt;Producto, Integer&gt; {
+<i>15</i>&nbsp;    Optional&lt;Producto&gt; findByCodigo(int code);
+<i>16</i>&nbsp;
+<i>17</i>&nbsp;    //@Query(value = &quot;SELECT * FROM productos WHERE estado = 1&quot;, nativeQuery = true)
+<i>18</i>&nbsp;    List&lt;Producto&gt; findByEstadoTrue();
+<i>19</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-01-31 19:58</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,152 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: ComandoSaleProduct</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">co.edu.cotecnova.facturacionelectronica.aplicacion.comando</a> ]
+</div>
+
+<h1>Coverage Summary for Class: ComandoSaleProduct (co.edu.cotecnova.facturacionelectronica.aplicacion.comando)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ComandoSaleProduct</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 24)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package co.edu.cotecnova.facturacionelectronica.aplicacion.comando;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import co.edu.cotecnova.facturacionelectronica.dominio.modelo.Product;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;/**
+<i>6</i>&nbsp; * Clase para crear venta producto
+<i>7</i>&nbsp; * @author Desarrolladores Cotecnova
+<i>8</i>&nbsp; * @version 1.0
+<i>9</i>&nbsp; * @since 2021
+<i>10</i>&nbsp; */
+<i>11</i>&nbsp;
+<i>12</i>&nbsp;public class ComandoSaleProduct {
+<i>13</i>&nbsp;    private int saleProductId;
+<i>14</i>&nbsp;    private int productId;
+<i>15</i>&nbsp;    private int saleId;
+<i>16</i>&nbsp;    private int quantity;
+<i>17</i>&nbsp;    private Product product;
+<i>18</i>&nbsp;
+<b class="nc"><i>19</i>&nbsp;    public ComandoSaleProduct() {</b>
+<b class="nc"><i>20</i>&nbsp;    }</b>
+<i>21</i>&nbsp;
+<b class="nc"><i>22</i>&nbsp;    public ComandoSaleProduct(int saleProductId, int productId, int saleId, int quantity, Product product) {</b>
+<b class="nc"><i>23</i>&nbsp;        this.saleProductId = saleProductId;</b>
+<b class="nc"><i>24</i>&nbsp;        this.productId = productId;</b>
+<b class="nc"><i>25</i>&nbsp;        this.saleId = saleId;</b>
+<b class="nc"><i>26</i>&nbsp;        this.quantity = quantity;</b>
+<b class="nc"><i>27</i>&nbsp;        this.product = product;</b>
+<b class="nc"><i>28</i>&nbsp;    }</b>
+<i>29</i>&nbsp;
+<i>30</i>&nbsp;    public int getSaleProductId() {
+<b class="nc"><i>31</i>&nbsp;        return saleProductId;</b>
+<i>32</i>&nbsp;    }
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;    public void setSaleProductId(int saleProductId) {
+<b class="nc"><i>35</i>&nbsp;        this.saleProductId = saleProductId;</b>
+<b class="nc"><i>36</i>&nbsp;    }</b>
+<i>37</i>&nbsp;
+<i>38</i>&nbsp;    public int getProductId() {
+<b class="nc"><i>39</i>&nbsp;        return productId;</b>
+<i>40</i>&nbsp;    }
+<i>41</i>&nbsp;
+<i>42</i>&nbsp;    public void setProductId(int productId) {
+<b class="nc"><i>43</i>&nbsp;        this.productId = productId;</b>
+<b class="nc"><i>44</i>&nbsp;    }</b>
+<i>45</i>&nbsp;
+<i>46</i>&nbsp;    public int getSaleId() {
+<b class="nc"><i>47</i>&nbsp;        return saleId;</b>
+<i>48</i>&nbsp;    }
+<i>49</i>&nbsp;
+<i>50</i>&nbsp;    public void setSaleId(int saleId) {
+<b class="nc"><i>51</i>&nbsp;        this.saleId = saleId;</b>
+<b class="nc"><i>52</i>&nbsp;    }</b>
+<i>53</i>&nbsp;
+<i>54</i>&nbsp;    public int getQuantity() {
+<b class="nc"><i>55</i>&nbsp;        return quantity;</b>
+<i>56</i>&nbsp;    }
+<i>57</i>&nbsp;
+<i>58</i>&nbsp;    public void setQuantity(int quantity) {
+<b class="nc"><i>59</i>&nbsp;        this.quantity = quantity;</b>
+<b class="nc"><i>60</i>&nbsp;    }</b>
+<i>61</i>&nbsp;
+<i>62</i>&nbsp;    public Product getProduct() {
+<b class="nc"><i>63</i>&nbsp;        return product;</b>
+<i>64</i>&nbsp;    }
+<i>65</i>&nbsp;
+<i>66</i>&nbsp;    public void setProduct(Product product) {
+<b class="nc"><i>67</i>&nbsp;        this.product = product;</b>
+<b class="nc"><i>68</i>&nbsp;    }</b>
+<i>69</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-01-31 19:58</div>
+</div>
+</body>
+</html>
